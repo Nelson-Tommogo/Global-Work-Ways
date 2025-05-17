@@ -178,7 +178,7 @@ export default function StripeLikePage() {
                 className="submit-button"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Processing...' : `Pay $300.00 USD`}
+                {isSubmitting ? 'Processing...' : `Pay $300.00`}
               </button>
             </form>
           ) : (
