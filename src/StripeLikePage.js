@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './StripeLikePage.css';
+import visaImage from './assets/amazon.png';
+import mastercardImage from './assets/mastercard.png';
+import applePayImage from './assets/applepay.png';
+import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 function Card({ children }) {
   return (
@@ -14,10 +18,12 @@ export default function StripeLikePage() {
     name: '',
     email: '',
     phone: '',
-    cardNumber: '',
-    expiry: '',
-    cvc: ''
+    cardNumber: '•••• •••• •••• 4242',
+    expiry: '••/••',
+    cvc: '•••'
   });
+  const [paymentStatus, setPaymentStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleChange(e) {
     setFormData({
@@ -26,11 +32,33 @@ export default function StripeLikePage() {
     });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // Payment processing logic would go here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setPaymentStatus('processing');
+    
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      const isSuccess = Math.random() > 0.3;
+      setPaymentStatus(isSuccess ? 'success' : 'error');
+    } catch (err) {
+      setPaymentStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   }
+
+  const resetForm = () => {
+    setPaymentStatus(null);
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      cardNumber: '•••• •••• •••• 4242',
+      expiry: '••/••',
+      cvc: '•••'
+    });
+  };
 
   return (
     <div className="stripe-container">
@@ -40,91 +68,145 @@ export default function StripeLikePage() {
       
       <div className="stripe-content">
         <Card>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                value={formData.name} 
-                onChange={handleChange} 
-                required 
-              />
-            </div>
-            
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                value={formData.email} 
-                onChange={handleChange} 
-                required 
-              />
-            </div>
-            
-            <div className="form-group">
-              <label htmlFor="phone">Phone Number</label>
-              <input 
-                type="tel" 
-                id="phone" 
-                name="phone" 
-                value={formData.phone} 
-                onChange={handleChange} 
-                placeholder="+1 (555) 123-4567" 
-                required 
-              />
-            </div>
-            
-            <div className="payment-details">
-              <h3>Payment Details</h3>
-              
+          {paymentStatus === null ? (
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="cardNumber">Card Number</label>
+                <label htmlFor="name">Full Name</label>
                 <input 
                   type="text" 
-                  id="cardNumber" 
-                  name="cardNumber" 
-                  value={formData.cardNumber} 
+                  id="name" 
+                  name="name" 
+                  value={formData.name} 
                   onChange={handleChange} 
-                  placeholder="1234 5678 9012 3456" 
                   required 
                 />
               </div>
               
-              <div className="form-row">
-                <div className="form-group half">
-                  <label htmlFor="expiry">Expiry Date</label>
-                  <input 
-                    type="text" 
-                    id="expiry" 
-                    name="expiry" 
-                    value={formData.expiry} 
-                    onChange={handleChange} 
-                    placeholder="MM/YY" 
-                    required 
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  value={formData.email} 
+                  onChange={handleChange} 
+                  required 
+                />
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="phone">Phone Number</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  value={formData.phone} 
+                  onChange={handleChange} 
+                  placeholder="+1 (555) 123-4567" 
+                  required 
+                />
+              </div>
+              
+              <div className="payment-methods">
+                <h3>Payment Method</h3>
+                
+                <div className="apple-pay-container">
+                  <img 
+                    src={applePayImage} 
+                    alt="Apple Pay" 
+                    className="apple-pay-button"
+                    style={{ cursor: 'not-allowed' }}
                   />
+                  <div className="payment-method-divider">
+                    <span>or pay with card</span>
+                  </div>
                 </div>
                 
-                <div className="form-group half">
-                  <label htmlFor="cvc">CVC</label>
-                  <input 
-                    type="text" 
-                    id="cvc" 
-                    name="cvc" 
-                    value={formData.cvc} 
-                    onChange={handleChange} 
-                    placeholder="123" 
-                    required 
-                  />
+                <div className="payment-details">
+                  <div className="card-brands">
+                    <img src={visaImage} alt="Visa" className="card-brand" style={{ height: '24px' }} />
+                    <img src={mastercardImage} alt="Mastercard" className="card-brand" style={{ height: '24px' }} />
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="cardNumber">Card Number</label>
+                    <input 
+                      type="text" 
+                      id="cardNumber" 
+                      name="cardNumber" 
+                      value={formData.cardNumber} 
+                      readOnly
+                      className="read-only-input"
+                    />
+                  </div>
+                  
+                  <div className="form-row">
+                    <div className="form-group half">
+                      <label htmlFor="expiry">Expiry Date</label>
+                      <input 
+                        type="text" 
+                        id="expiry" 
+                        name="expiry" 
+                        value={formData.expiry} 
+                        readOnly
+                        className="read-only-input"
+                      />
+                    </div>
+                    
+                    <div className="form-group half">
+                      <label htmlFor="cvc">CVC</label>
+                      <input 
+                        type="text" 
+                        id="cvc" 
+                        name="cvc" 
+                        value={formData.cvc} 
+                        readOnly
+                        className="read-only-input"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
+              
+              <button 
+                type="submit" 
+                className="submit-button"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Processing...' : `Pay $300.00 USD`}
+              </button>
+            </form>
+          ) : (
+            <div className={`payment-result ${paymentStatus}`}>
+              {paymentStatus === 'success' ? (
+                <>
+                  <FaCheckCircle className="result-icon success" />
+                  <h3>Payment Successful!</h3>
+                  <p>Thank you for your payment of $300.00 USD</p>
+                  <p>A receipt has been sent to {formData.email}</p>
+                  <button 
+                    onClick={resetForm}
+                    className="submit-button"
+                  >
+                    Make Another Payment
+                  </button>
+                </>
+              ) : (
+                <>
+                  <FaTimesCircle className="result-icon error" />
+                  <h3>Payment Failed</h3>
+                  <p>We couldn't process your payment of $300.00 USD</p>
+                  <p>Please try again or use a different payment method</p>
+                  <button 
+                    onClick={resetForm}
+                    className="submit-button"
+                  >
+                    Try Again
+                  </button>
+                </>
+              )}
             </div>
-            
-            <button type="submit" className="submit-button">Pay Now</button>
-          </form>
+          )}
         </Card>
       </div>
     </div>

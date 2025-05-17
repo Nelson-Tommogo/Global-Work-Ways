@@ -1,97 +1,235 @@
+/* Base Styles */
 .stripe-container {
-  max-width: 800px;
+  max-width: 500px;
   margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #1a1f36;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  color: #32325d;
 }
 
+/* Header Styles */
 .stripe-header {
-  padding: 20px 0;
   text-align: center;
+  margin-bottom: 30px;
+  position: relative;
 }
 
+.stripe-header h1 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.payment-amount {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #32325d;
+}
+
+/* Card Container */
 .card {
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   padding: 30px;
   margin-bottom: 20px;
 }
 
+/* Form Elements */
 .form-group {
   margin-bottom: 20px;
 }
 
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #6b7c93;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e6ed;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: #6772e5;
+  box-shadow: 0 0 0 1px #6772e5;
+  outline: none;
+}
+
+.read-only-input {
+  background-color: #f6f9fc;
+  color: #8898aa;
+  cursor: not-allowed;
+}
+
+/* Payment Method Sections */
+.payment-methods {
+  margin-top: 30px;
+}
+
+.payment-methods h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* Apple Pay Button */
+.apple-pay-container {
+  margin-bottom: 20px;
+}
+
+.apple-pay-button {
+  width: 100%;
+  height: 40px;
+  border-radius: 6px;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Payment Method Divider */
+.payment-method-divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  color: #8898aa;
+  font-size: 14px;
+}
+
+.payment-method-divider::before,
+.payment-method-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e0e6ed;
+}
+
+.payment-method-divider::before {
+  margin-right: 10px;
+}
+
+.payment-method-divider::after {
+  margin-left: 10px;
+}
+
+/* Card Brand Images */
+.card-brands {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.card-brand {
+  height: 24px;
+}
+
+/* Form Layout */
 .form-row {
   display: flex;
   gap: 15px;
 }
 
-.half {
+.form-group.half {
   flex: 1;
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #e3e8ee;
-  border-radius: 4px;
-  font-size: 16px;
-  transition: border 0.15s;
-}
-
-input:focus {
-  border-color: #6772e5;
-  outline: none;
-  box-shadow: 0 0 0 1px #6772e5;
-}
-
-.payment-details {
-  margin-top: 30px;
-}
-
+/* Submit Button */
 .submit-button {
+  width: 100%;
   background: #6772e5;
   color: white;
   border: none;
-  padding: 12px 16px;
-  border-radius: 4px;
+  border-radius: 6px;
+  padding: 14px;
   font-size: 16px;
   font-weight: 600;
-  width: 100%;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: all 0.2s ease;
+  margin-top: 20px;
 }
 
 .submit-button:hover {
   background: #5469d4;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(50, 50, 93, 0.1);
 }
 
-/* Mobile styles */
+.submit-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.submit-button:disabled {
+  background-color: #aab7c4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Payment Result States */
+.payment-result {
+  text-align: center;
+  padding: 20px;
+}
+
+.payment-result h3 {
+  font-size: 20px;
+  margin: 20px 0 10px;
+}
+
+.payment-result p {
+  color: #525f7f;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.result-icon {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.result-icon.success {
+  color: #2ecc71;
+}
+
+.result-icon.error {
+  color: #e74c3c;
+}
+
+.payment-result.success {
+  background-color: rgba(46, 204, 113, 0.05);
+}
+
+.payment-result.error {
+  background-color: rgba(231, 76, 60, 0.05);
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .stripe-container {
     width: 100%;
-    padding: 0 10px;
+    padding: 0 20px;
   }
   
   .stripe-header {
-    padding: 15px 0;
+    margin-bottom: 20px;
   }
   
-  .stripe-header h1 {
-    font-size: 24px;
+  .payment-amount {
+    position: static;
+    display: block;
+    margin-top: 10px;
   }
   
   .card {
-    padding: 20px 15px;
-    border-radius: 6px;
+    padding: 25px 20px;
   }
   
   .form-row {
@@ -99,17 +237,8 @@ input:focus {
     gap: 20px;
   }
   
-  .half {
-    width: 100%;
-  }
-  
-  input {
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  .submit-button {
-    padding: 12px;
+  .payment-method-divider {
+    margin: 15px 0;
   }
 }
 
@@ -119,14 +248,71 @@ input:focus {
   }
   
   .card {
-    padding: 15px 12px;
+    padding: 20px 15px;
+    border-radius: 8px;
   }
   
-  label {
-    font-size: 13px;
+  .form-group input {
+    padding: 10px;
   }
   
-  input {
-    font-size: 14px;
+  .submit-button {
+    padding: 12px;
   }
+  
+  .result-icon {
+    font-size: 50px;
+  }
+  
+  .payment-result h3 {
+    font-size: 18px;
+  }
+  
+  .payment-methods h3 {
+    font-size: 15px;
+  }
+}
+
+/* Add these to your existing StripeLikePage.css */
+
+.apple-pay-button {
+  width: 100%;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.card-brands {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.card-brand {
+  height: 24px;
+  object-fit: contain;
+  max-width: 60px; /* Adjust based on your preference */
+}
+
+/* Ensure the payment method section doesn't stretch too much */
+.payment-methods {
+  margin-top: 30px;
+  max-width: 100%;
+}
+
+.payment-details {
+  margin-top: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.payment-result {
+  animation: fadeIn 0.3s ease-in-out;
 }
