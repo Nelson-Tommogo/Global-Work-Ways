@@ -18,9 +18,9 @@ export default function Footer() {
       title: "Terms of Service",
       content: (
         <div>
-          <h3>PaymentHub Terms of Service</h3>
+          <h3>Global Work Ways Service Fee Terms of Service</h3>
           <p>Last Updated: {new Date().toLocaleDateString()}</p>
-          <p>Welcome to PaymentHub! These Terms of Service govern your use of our platform.</p>
+          <p>Welcome to Global Work Ways Service Fee! These Terms of Service govern your use of our platform.</p>
           <h4>1. Payment Processing</h4>
           <p>We provide secure payment processing services with industry-standard encryption.</p>
           <h4>3. Prohibited Activities</h4>
@@ -32,7 +32,7 @@ export default function Footer() {
       title: "Privacy Policy",
       content: (
         <div>
-          <h3>PaymentHub Privacy Policy</h3>
+          <h3>Global Work Ways Service Fee Privacy Policy</h3>
           <p>Last Updated: {new Date().toLocaleDateString()}</p>
           <p>We are committed to protecting your personal information.</p>
           <h4>1. Information We Collect</h4>
@@ -48,7 +48,7 @@ export default function Footer() {
       title: "Cookie Policy",
       content: (
         <div>
-          <h3>PaymentHub Cookie Policy</h3>
+          <h3>Global Work Ways Service Fee Cookie Policy</h3>
           <p>Last Updated: {new Date().toLocaleDateString()}</p>
           <p>We use cookies to enhance your experience on our platform.</p>
           <h4>1. What Are Cookies</h4>
@@ -64,7 +64,7 @@ export default function Footer() {
       title: "Help Center",
       content: (
         <div>
-          <h3>PaymentHub Help Center</h3>
+          <h3>Global Work Ways Service Fee Help Center</h3>
           <p>Find answers to common questions and issues.</p>
           <h4>Getting Started</h4>
           <p>Learn how to create an account and set up payment processing.</p>
@@ -79,10 +79,10 @@ export default function Footer() {
       title: "Contact Us",
       content: (
         <div>
-          <h3>Contact PaymentHub Support</h3>
+          <h3>Contact Global Work Ways Service Fee Support</h3>
           <p>We're here to help with any questions or issues.</p>
           <h4>Email Support</h4>
-          <p>support@paymenthub.com (Response within 24 hours)</p>
+          <p>support@globalworkways.com (Response within 24 hours)</p>
           <h4>Phone Support</h4>
           <p>1-800-PAY-HUB (Available 9AM-5PM EST, Monday-Friday)</p>
           <h4>Live Chat</h4>
@@ -94,7 +94,7 @@ export default function Footer() {
       title: "Frequently Asked Questions",
       content: (
         <div>
-          <h3>PaymentHub FAQ</h3>
+          <h3>Global Work Ways Service Fee FAQ</h3>
           <h4>How do I create an account?</h4>
           <p>Click the "Sign Up" button and follow the registration process.</p>
           <h4>What payment methods do you support?</h4>
@@ -138,7 +138,7 @@ export default function Footer() {
           </div>
           
           <div className="footer-bottom">
-            <p>&copy; {new Date().getFullYear()} PaymentHub. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Global Work Ways Service Fee. All rights reserved.</p>
           </div>
         </div>
       </footer>
