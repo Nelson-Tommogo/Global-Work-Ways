@@ -12,7 +12,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <span className="logo">PaymentHub</span>
+          <span className="logo">Global Work Ways Service Fee</span>
         </div>
         
         <div className="hamburger" onClick={toggleMenu}>

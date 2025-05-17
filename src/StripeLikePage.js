@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './StripeLikePage.css';
 import visaImage from './assets/amazon.png';
 import mastercardImage from './assets/mastercard.png';
+import card from './assets/eway.png';
+import paycard from './assets/ebay.png';
 import applePayImage from './assets/applepay.png';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
@@ -123,21 +125,24 @@ export default function StripeLikePage() {
                 </div>
                 
                 <div className="payment-details">
-                  <div className="card-brands">
-                    <img src={visaImage} alt="Visa" className="card-brand" style={{ height: '24px' }} />
-                    <img src={mastercardImage} alt="Mastercard" className="card-brand" style={{ height: '24px' }} />
-                  </div>
-                  
                   <div className="form-group">
-                    <label htmlFor="cardNumber">Card Number</label>
-                    <input 
-                      type="text" 
-                      id="cardNumber" 
-                      name="cardNumber" 
-                      value={formData.cardNumber} 
-                      readOnly
-                      className="read-only-input"
-                    />
+                    <label htmlFor="cardNumber">Card Information</label>
+                    <div className="card-input-wrapper">
+                      <input 
+                        type="text" 
+                        id="cardNumber" 
+                        name="cardNumber" 
+                        value={formData.cardNumber} 
+                        readOnly
+                        className="card-input read-only-input"
+                      />
+                      <div className="card-brand-icons">
+                        <img src={visaImage} alt="Visa" className="card-brand-icon" />
+                        <img src={mastercardImage} alt="Mastercard" className="card-brand-icon" />
+                        <img src={card} alt="Mastercard" className="card-brand-icon" />
+                        <img src={paycard} alt="Mastercard" className="card-brand-icon" />
+                      </div>
+                    </div>
                   </div>
                   
                   <div className="form-row">
