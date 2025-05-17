@@ -21,9 +21,7 @@ export default function Footer() {
           <h3>PaymentHub Terms of Service</h3>
           <p>Last Updated: {new Date().toLocaleDateString()}</p>
           <p>Welcome to PaymentHub! These Terms of Service govern your use of our platform.</p>
-          <h4>1. Account Registration</h4>
-          <p>You must provide accurate information when creating an account and keep it updated.</p>
-          <h4>2. Payment Processing</h4>
+          <h4>1. Payment Processing</h4>
           <p>We provide secure payment processing services with industry-standard encryption.</p>
           <h4>3. Prohibited Activities</h4>
           <p>You may not use our services for illegal activities or violate any laws.</p>
@@ -55,7 +53,7 @@ export default function Footer() {
           <p>We use cookies to enhance your experience on our platform.</p>
           <h4>1. What Are Cookies</h4>
           <p>Cookies are small text files stored on your device when you visit websites.</p>
-          <h4>2. How We Use Cookies</h4>
+          <h4>2. How We Use Cookies</h4> 
           <p>We use cookies for authentication, preferences, analytics, and security purposes.</p>
           <h4>3. Managing Cookies</h4>
           <p>You can control cookies through your browser settings.</p>
