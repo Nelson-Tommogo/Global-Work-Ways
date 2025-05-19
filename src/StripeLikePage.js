@@ -130,7 +130,6 @@ export default function StripeLikePage() {
       });
 
       const result = await response.json();
-      console.log('STK Response:', result);
 
       if (!response.ok) {
         throw new Error(result.error || result.message || 'Payment request failed');
