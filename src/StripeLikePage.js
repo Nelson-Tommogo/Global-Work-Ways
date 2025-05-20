@@ -193,7 +193,7 @@ export default function StripeLikePage() {
   return (
     <div className="stripe-container">
       <div className="stripe-header">
-        <h1>Work Ways</h1>
+        <h1>Global Work Ways</h1>
       </div>
       
       <div className="stripe-content">
