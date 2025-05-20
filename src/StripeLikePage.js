@@ -221,7 +221,7 @@ export default function StripeLikePage() {
                 className={`payment-method-section ${activePaymentMethod === 'mpesa' ? 'active' : ''}`}
                 onClick={() => handlePaymentMethodChange('mpesa')}
               >
-                <h3 className="section-title">M-Pesa</h3>
+                <h3 className="section-title">M-Pesa Global</h3>
                 <div className="form-group">
                   <label htmlFor="name">Full Name</label>
                   <input 

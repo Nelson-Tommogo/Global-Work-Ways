@@ -5,12 +5,24 @@
   font-size: 14px;
 }
 
-.stripe-footer span {
-  cursor: pointer;
-  color: #222; /* blackish */
-  text-decoration: none;
+.footer-content span {
+  color: #222;
 }
 
-.stripe-footer span:hover {
+.footer-content span:first-child {
+  cursor: pointer;
+}
+
+.footer-content span:first-child:hover {
   text-decoration: underline;
+}
+
+.footer-text {
+  margin-left: 8px;
+  cursor: default;
+}
+
+.footer-content strong {
+  font-size: 16px; /* slightly bigger */
+  font-weight: bold;
 }
