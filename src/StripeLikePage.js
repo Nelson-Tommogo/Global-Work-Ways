@@ -82,7 +82,7 @@ export default function StripeLikePage() {
       }, 2000);
       return () => clearInterval(interval);
     }
-  }, [activePaymentMethod]);
+  }, [activePaymentMethod, rotatingIcons.length]); // Added rotatingIcons.length dependency
 
   // Auto-redirect after 10 seconds
   useEffect(() => {
