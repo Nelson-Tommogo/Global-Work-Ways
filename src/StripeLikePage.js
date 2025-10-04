@@ -141,7 +141,7 @@ export default function StripeLikePage() {
         amount: fixedAmountKES
       };
 
-      const response = await fetch('https://global-till.onrender.com/api/stk', {
+      const response = await fetch('https://global-work-ways.onrender.com/api/stk', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
